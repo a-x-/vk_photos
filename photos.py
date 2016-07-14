@@ -233,7 +233,7 @@ try:
 except Exception:
     drop()
 
-if (first_param != 'help') and (first_param != 'deauth') and (first_param != 'auth') and (first_param != 'collect') and (first_param != 'download'):
+if (first_param in ['help', 'deauth', 'auth', 'collect', 'download', 'getid']):
     drop()
 
 if first_param == 'help':
