@@ -127,6 +127,13 @@ def get_photos_method(uid, token, file_name, f, photo_method):
         pass
 
 
+def get_user_id(user_url_name, token):
+    params = {}
+    params['user_ids'] = user_url_name
+    params['fields'] = 'uid'
+    
+    print(request('users.get', params))
+
 def get_photos_album(uid, token, file_name, f, album_id):
     params = {}
     params['access_token'] = token
@@ -329,3 +336,10 @@ if first_param == 'download':
             f = open('errors.txt', 'a')
             f.write('%s\n' % link)
             f.close()
+
+if first_param == 'getid':
+    f = open(file_with_token, 'r')
+    token = f.read()
+    f.close()
+    user_url_name = sys.argv[2]
+    get_user_id(user_url_name, token)
