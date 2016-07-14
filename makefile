@@ -1,11 +1,11 @@
-install:
-	@echo install httpi and jq
-
-auth:
-	python3 photos.py auth ${LOGIN} ${PASSWORD}
-
 default:
-	python3 photos.py collect user $$(http 'https://api.vk.com/method/users.get?user_ids=${USER}' | jq '.response[].uid')
+	@python3 photos.py collect user $$(python3 photos.py getid ${USER})
 
 by-id:
-	python3 photos.py collect user ${USER}
+	@python3 photos.py collect user ${USER}
+
+install:
+	@echo nothing
+
+auth:
+	@python3 photos.py auth ${LOGIN} ${PASSWORD}
