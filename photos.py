@@ -163,10 +163,10 @@ def get_photos_album(uid, token, file_name, f, album_id):
 
 
 def get_photos(uid, token, directory_name, f):
-    download_methods = ['getAll']#, 'getUserPhotos' 'getNewTags'
-    album_ids = [-6, -7, -15]
-    for index, d_method in enumerate(download_methods):
-        get_photos_method(uid, token, directory_name, f, d_method)
+    #download_methods = ['getUserPhotos']#, 'getAll' 'getNewTags'
+    album_ids = [-6] #, -7, -15] profile photos, not wall, not saved
+    #for index, d_method in enumerate(download_methods):
+    #    get_photos_method(uid, token, directory_name, f, d_method)
     for index, album_num in enumerate(album_ids):
         get_photos_album(uid, token, directory_name, f, album_num)
 
