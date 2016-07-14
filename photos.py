@@ -132,7 +132,7 @@ def get_user_id(user_url_name, token):
     params['user_ids'] = user_url_name
     params['fields'] = 'uid'
     
-    print(request('users.get', params))
+    print(request('users.get', params, is_one=False))
 
 def get_photos_album(uid, token, file_name, f, album_id):
     params = {}
